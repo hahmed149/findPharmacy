@@ -20,7 +20,7 @@ public class Pharmacy {
     @Column(name = "state")
     private String state;
     @Column(name = "zip")
-    private Integer zipCode;
+    private Integer zip;
     @Column(name = "latitude")
     private Double latitude;
     @Column(name = "longitude")
@@ -30,13 +30,25 @@ public class Pharmacy {
     {
     }
 
-    public Pharmacy(Long id, String name, String address, String state, Integer zipCode, Double latitude,
+    public Pharmacy(Long id, String name, String address, String city, String state, Integer zip, Double latitude,
                     Double longitude) {
         this.id = id;
         this.name = name;
         this.address = address;
+        this.city = city;
         this.state = state;
-        this.zipCode = zipCode;
+        this.zip = zip;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public Pharmacy(String name, String address, String city, String state, Integer zip, Double latitude,
+                    Double longitude) {
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -81,12 +93,12 @@ public class Pharmacy {
         this.state = state;
     }
 
-    public Integer getZipCode() {
-        return zipCode;
+    public Integer getZip() {
+        return zip;
     }
 
-    public void setZipCode(Integer zipCode) {
-        this.zipCode = zipCode;
+    public void setZip(Integer zip) {
+        this.zip = zip;
     }
 
     public Double getLongitude() {
@@ -125,7 +137,7 @@ public class Pharmacy {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", state='" + state + '\'' +
-                ", zipCode='" + zipCode + '\'' +
+                ", zipCode='" + zip + '\'' +
                 ", latitude='" + latitude + '\'' +
                 ", longitude=" + longitude +
                 '}';
